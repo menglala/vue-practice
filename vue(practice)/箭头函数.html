@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>箭头函数</title>
+    <style>
+        [v-choak]{
+            display: none;
+        }
+    </style>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app" v-choak>{{msg}}</div>
+</body>
+<script>
+    let vm=new Vue({
+        el:'#app',
+        data:{
+            msg:'大叔大婶'
+        }
+    })
+
+
+    // function a(b) {         //普通函数
+    //     return b+1;
+    // }
+
+    // let a=b=>b+1;       //箭头函数,a表示函数名,b是参数(只有一个参数的情况下可以省略小括号),b+1是return后面的代码,如果没有大括号可以省略return关键字
+
+    // let a=()=>{         //()是没有参数或者多个参数的情况,在=>后加了{}则一定要写return关键字
+    //     b=3;
+    //     return b+2;
+    // }
+
+    // let a=b=>c=>b+c;            //高阶函数,有两个及以上=>的
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>defineProperty</title>
+    
+</head>
+<body>
+    <input type="text" id="inp">
+</body>
+<script>
+    let inp=document.getElementById('inp');
+    let obj={};
+    let temp={};
+
+    Object.defineProperty(obj,'name',{
+        get(){      //取obj的值时触发
+            return temp["name"];
+        },
+        set(value){ //改变obj值时触发
+            temp["name"]=value;
+            inp.value=value;
+        }
+    })
+    inp.addEventListener('input',function () {
+        obj.name=this.value;
+    })
+    inp.value=obj.name;
+    
+</script>
+</html>
+
+
+
+

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组</title>
+    <script src="E:/practiceToVue/node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">{{arr[3]}}</div>
+</body>
+<script>
+    let vm=new Vue({
+        el:'#app',
+        data:{
+            arr:[1,23,3,30]
+        }
+    })
+    vm.arr[0]=21;       //页面不会更新,修改数组没有映射到页面中
+    vm.arr.length=3;        //页面还是没有更新,
+    vm.arr.push(23)
+    vm.arr.pop(3);
+</script>
+</html>

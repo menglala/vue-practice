@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-for</title>
+    <script src="E:/practiceToVue/node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <!-- <div id="app" >
+        <ul>
+            <li v-for="fruit in fruits">{{fruit.name}}</li>
+            <li v-for="(fruit,index) in fruits">{{index+1}}.{{fruit.name}}
+                <ul>
+                    <li v-for="(fruitColor,index2) in fruit.color">{{index+1}}.{{index2+1}}  {{fruitColor}}</li>
+                </ul>
+            </li>
+        </ul>
+    </div> -->
+    <div id="app2" v-for="c in aaaa">{{c}}</div>
+        
+    
+    <div id="app">
+        <span v-for="n in 10">{{ n }} </span>
+    </div>
+    <ul id="exp">
+        <li v-for="(value,key,index) in person">{{index}}.{{key}}:{{value}}</li>
+    </ul>
+
+</body>
+<script>
+    let vm = new Vue({
+        el: '#app2',
+        data: {
+            fruits: [
+                { name: 'xxx', color: ['red', 'white'] },
+                { name: 'aaaa', color: ['yellow'] },
+                {
+                    name: 'hhhh', color: ['black']
+                }],
+            person: {
+                name: 'xxxx',
+                age: '10'
+            },
+            aaaa: 'asdssds'
+        }
+    })
+    let obj = {
+        name: 'xxxx',
+        age: '19',
+        location: "zhongguo"
+    }
+</script>
+
+</html>

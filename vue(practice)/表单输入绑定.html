@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表单输入绑定</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="checkbox" id="checkbox" v-model="checked" value="1">
+        <input type="checkbox"  v-model="checked" value="2">
+        <input type="checkbox"  v-model="checked" value="3">
+        <input type="checkbox"  v-model="checked" value="4">
+        <input type="checkbox"  v-model="checked" value="5">
+        <input type="checkbox"  v-model="checked" value="6">
+        <label for="checkbox">{{checked}}</label>
+        <input type="radio" name="1" v-model="picked" value="one">
+        <input type="radio" name="2" v-model="picked"  value="two">
+        <p>{{picked}}</p>
+        <select name="select" id="select" v-model="selected" >
+            <option value="" disabled>请选择</option>
+            <option v-for="option in options">{{option.text}}</option>
+        </select>
+        <span>{{selected}}</span>
+    </div>
+</body>
+<script>
+    let vm=new Vue({
+        el:'#app',
+        data:{
+            checked:[],
+            picked:'' ,
+            selected:'',
+            options:[
+                {text:'A',value:'1'},
+                {text:'B',value:'2'},
+                {text:'C',value:'3'},
+            ]
+        }
+    })
+</script>
+</html>

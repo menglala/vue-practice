@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Promise</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function timeout(ms) {
+        return new Promise((resolve,reject)=>{
+            setTimeout(resolve,ms,'done');
+        })
+    }
+    timeout(100).then((value)=>{
+        console.log(value);
+        
+    })
+
+    let promise=new Promise((resolve,reject)=>{
+        console.log('promise');   //新建promise对象后马上执行
+        resolve();
+    })
+    promise.then(function () {
+        console.log('Resolve!');      //等待当前脚本所有同步任务执行完成后才执行
+        
+    })
+    console.log('hi!');
+    // 'promise' -> 'hi!' -> 'Resolve!'
+
+    var p1=new Promise((resolve,reject)=>{
+        setTimeout(reject(new Error('fail')),3000);
+    })
+
+    var p2=new Promise((resolve,reject)=>{
+        setTimeout(resolve(p1),1000);  
+        //将Promise的实例p1作为参数传入resolve函数，导致p2状态无效。所以后面的then语句变成了针对后者p1的
+    })
+
+    p2.then(result=>console.log(result))
+        .catch(error=>console.log(error)); 
+     //Error: fail   ，针对p1打印出‘fail’
+
+     p2.then((val)=>console.log('succcess:',val))
+        .catch((err)=>console.log('fail:',err));
+
+    //等同于
+    p2.then((val) => console.log('succcess:', val))
+        .then(null,(err)=>console.log('fail:',err));
+
+    var p=new Promise((resolve,reject)=>{
+        //第一种写法
+        throw new Error('test error');
+
+        //第二种写法
+        try{
+            throw new Error('test error')
+        }catch(e){
+            reject(e);
+        }
+        //第三种写法
+        reject(new Error('text error'));
+    })
+
+    p.catch(error=>{
+        console.log(error);
+    })
+</script>
+</html>

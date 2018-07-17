@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v指令</title>
+    <script src="E:\practiceToVue\node_modules\vue\dist\vue.js"></script>
+</head>
+<body>
+    <div>{{a.school}}</div> 
+</body>
+<script>
+    // let vm=new Vue({
+    //     el:'div',
+    //     data:{
+    //         msg:'大叔的挥洒',
+    //         a:{
+    //             //school:'hahaha'   //a.school是未初始化的属性
+    //         }
+    //     }
+    // })
+
+    // vm.$set(vm.a,'school',12456); //给对象添加响应式的数据变化,第一个参数是要添加新属性的对象,第二个参数是新加的属性名,第三参数是属性值
+    // vm.a={ school:'是多少',age:18,address:'的神色'}; //替换原对象
+
+     let arr=[[1,23,3],[343,345,3,4],[7,8,9,30]];
+     arr=arr.reduce(function (pre,cur) {   //将二维数组转换为一维数组
+         return pre.concat(cur);
+     })
+     console.log(arr);      //[1, 23, 3, 343, 345, 3, 4, 7, 8, 9, 30]
+     
+     
+</script>
+</html>

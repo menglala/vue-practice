@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>购物车</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="node_modules/axios/dist/axios.js"></script>
+    <style>
+        .openration span:hover {
+            cursor: pointer;
+            color: red;
+        }
+    </style>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div class="container" id="app">
+        <div class="row">
+            <h2 class="text-warning">京东购物车</h2>
+            <table class="table table-hover">
+                <thead>
+                    <th>
+                        <input type="checkbox" id="checkAll">全选</th>
+                    <th>商品</th>
+                    <th>单价</th>
+                    <th>数量</th>
+                    <th>小计</th>
+                    <th>操作</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="checkbox">
+                        </td>
+                        <td>
+                            <img :src="imageUrl" :alt="productName">
+                            <span>{{productInfo}}</span>
+                        </td>
+                        <td>{{productPrice|toFixed(2)}}</td>
+                        <td>
+                            <input type="number" min="1">
+                        </td>
+                        <td>{{productSum|toFixed(2)}}</td>
+                        <td class="openration">
+                            <span>删除</span>
+                            <br>
+                            <span>移动我的关注</span>
+                            <br>
+                            <span>加到我的关注</span>
+                        </td>
+                    </tr>
+                    <tr class="col-md-12">
+                        <span>总价格:¥</span>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</body>
+<script src="scripts/cart.js"></script>
+</html>
